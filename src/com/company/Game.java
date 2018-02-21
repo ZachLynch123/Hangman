@@ -11,7 +11,7 @@ public class Game {
         misses = "";
     }
 
-    public boolean guess(char letter) {
+    public boolean applyGuess(char letter) {
         boolean ishit = mAnswer.indexOf(letter) != -1;
         if (ishit) {
             hits += letter;
