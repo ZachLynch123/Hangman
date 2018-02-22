@@ -11,12 +11,19 @@ public class Prompter {
     public Prompter (Game game){
         mGame = game;
     }
-    public boolean promptForGuess() {
+    public boolean promptForGuess() throws IllegalAccessException {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a letter:  ");
         String  guessInput = scanner.nextLine();
         char guess = guessInput.charAt(0);
-        return mGame.applyGuess(guess);
+        boolean isHit = false;
+        try {
+            isHit =  mGame.applyGuess(guess);
+
+        }catch (IllegalArgumentException iae){
+            System.out.print(iae.getMessage());
+        }
+        return isHit;
     }
     public void displayProgress() {
         System.out.printf("Try to solve: %s%nYou have %d guesses to solve %n", mGame.getCurrentProgress(),
