@@ -25,7 +25,7 @@ public class Game {
         String progress = "";
 
         for (char letter : mAnswer.toCharArray()){
-            char display = '-';
+            char display = '_';
             if (hits.indexOf(letter) != -1) {
                 display = letter;
 
