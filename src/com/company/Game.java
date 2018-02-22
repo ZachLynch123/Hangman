@@ -22,6 +22,12 @@ public class Game {
         }
         return letter;
     }
+    public boolean applyGuess(String letters) {
+        if (letters.length() == 0){
+            throw new IllegalArgumentException("No letter found");
+        }
+        return applyGuess(letters.charAt(0));
+    }
 
     public boolean applyGuess(char letter){
         // Calls exceptions if the character ins't a letter or has already been guessed
