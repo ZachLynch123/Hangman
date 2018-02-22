@@ -11,7 +11,7 @@ public class Prompter {
     public Prompter (Game game){
         mGame = game;
     }
-    public boolean promptForGuess() throws IllegalAccessException {
+    public boolean promptForGuess() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a letter:  ");
         String  guessInput = scanner.nextLine();

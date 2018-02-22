@@ -7,14 +7,18 @@ public class Game {
     private String misses;
 
     public Game(String answer){
-        mAnswer = answer;
+        mAnswer = answer.toLowerCase();
         hits = "";
         misses = "";
     }
 
     public boolean applyGuess(char letter){
         if (misses.indexOf(letter) != -1 || hits.indexOf(letter) != -1){
-            throw new IllegalAccessException(letter +" has already been guessed");
+            try {
+                throw new IllegalAccessException(letter +" has already been guessed");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
 
         }
         boolean ishit = mAnswer.indexOf(letter) != -1;
