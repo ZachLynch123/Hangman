@@ -8,13 +8,11 @@ public class Hangman {
 	    Game game = new Game("answer");
 	    // instantiate the prompter
 	    Prompter prompter = new Prompter(game);
-	    prompter.displayProgress();
-        boolean isHit = prompter.promptForGuess();
-        if (isHit) {
-            System.out.println("We got a hiiiiit!");
-        } else {
-            System.out.println("miss");
+	    while (game.getRemainingTries() > 0) {
+            prompter.displayProgress();
+            prompter.promptForGuess();
         }
-        prompter.displayProgress();
+
+
     }
 }
