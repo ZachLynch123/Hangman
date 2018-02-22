@@ -24,6 +24,7 @@ public class Game {
     }
 
     public boolean applyGuess(char letter){
+        // Calls exceptions if the character ins't a letter or has already been guessed
         letter = normalizedGuess(letter);
         boolean ishit = mAnswer.indexOf(letter) != -1;
         if (ishit) {

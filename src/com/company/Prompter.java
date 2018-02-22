@@ -12,17 +12,26 @@ public class Prompter {
         mGame = game;
     }
     public boolean promptForGuess() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a letter:  ");
-        String  guessInput = scanner.nextLine();
-        char guess = guessInput.charAt(0);
+        // Initialize variables
         boolean isHit = false;
-        try {
-            isHit =  mGame.applyGuess(guess);
+        boolean isAcceptable = false;
+        Scanner scanner = new Scanner(System.in);
 
-        }catch (IllegalArgumentException iae){
-            System.out.print(iae.getMessage());
-        }
+        // Will always happen since it's a do-while loop
+        do {
+            // Get input and set it to a variable
+            System.out.print("Enter a letter:  ");
+            String guessInput = scanner.nextLine();
+
+            // Since input always returns a string, have to use charAt. 0 being the first character in the string
+            char guess = guessInput.charAt(0);
+            try {
+                isHit = mGame.applyGuess(guess);
+
+            } catch (IllegalArgumentException iae) {
+                System.out.printf("%s. Please try again" ,iae.getMessage());
+            }
+        } while (! isAcceptable);
         return isHit;
     }
     public void displayProgress() {
