@@ -12,15 +12,19 @@ public class Game {
         misses = "";
     }
 
-    public boolean applyGuess(char letter){
-        if (misses.indexOf(letter) != -1 || hits.indexOf(letter) != -1){
-            try {
-                throw new IllegalAccessException(letter +" has already been guessed");
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-
+    private char normalizedGuess(char letter) {
+        if (! Character.isLetter(letter)) {
+            throw new IllegalArgumentException("A letter is required");
         }
+        letter = Character.toLowerCase(letter);
+        if (misses.indexOf(letter) != -1 || hits.indexOf(letter) != -1){
+            throw new IllegalArgumentException(letter +" has already been guessed \n");
+        }
+        return letter;
+    }
+
+    public boolean applyGuess(char letter){
+        letter = normalizedGuess(letter);
         boolean ishit = mAnswer.indexOf(letter) != -1;
         if (ishit) {
             hits += letter;
