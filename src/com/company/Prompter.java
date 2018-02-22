@@ -27,9 +27,9 @@ public class Prompter {
             char guess = guessInput.charAt(0);
             try {
                 isHit = mGame.applyGuess(guess);
-
+                isAcceptable = true;
             } catch (IllegalArgumentException iae) {
-                System.out.printf("%s. Please try again" ,iae.getMessage());
+                System.out.printf("%s. Please try again\n" ,iae.getMessage());
             }
         } while (! isAcceptable);
         return isHit;
