@@ -18,5 +18,17 @@ public class Prompter {
         char guess = guessInput.charAt(0);
         return mGame.applyGuess(guess);
     }
+    public void displayProgress() {
+        System.out.printf("Try to solve: %s%n", mGame.getCurrentProgress());
 
+
+    }
+/*
+enhanced for loop
+// for each letter in the example.toCharArray()
+for (char letter : example.toCharArray()) {
+ System.out.println(" we got the letter " + letter);
+}
+
+ */
 }

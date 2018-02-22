@@ -21,4 +21,18 @@ public class Game {
         return ishit;
     }
 
+    public String getCurrentProgress() {
+        String progress = "";
+
+        for (char letter : mAnswer.toCharArray()){
+            char display = '-';
+            if (hits.indexOf(letter) != -1) {
+                display = letter;
+
+            }
+            progress += display;
+        }
+        return progress;
+    }
+
 }
