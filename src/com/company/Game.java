@@ -43,6 +43,10 @@ public class Game {
         return ishit;
     }
 
+    public String getAnswer() {
+        return mAnswer;
+    }
+
     public int getRemainingTries() {
         return MAX_MISSES - misses.length();
     }
@@ -59,6 +63,10 @@ public class Game {
             progress += display;
         }
         return progress;
+    }
+    public boolean isWon() {
+        return getCurrentProgress().indexOf('_') == -1;
+
     }
 
 }

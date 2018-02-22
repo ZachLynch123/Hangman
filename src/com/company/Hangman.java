@@ -9,13 +9,11 @@ public class Hangman {
 	    // instantiate the prompter
 	    Prompter prompter = new Prompter(game);
 	    // While loop that gets user guesses while the remainder of misses  is less than 0
-	    while (game.getRemainingTries() > 0) {
+	    while (game.getRemainingTries() > 0 && !game.isWon()) {
             prompter.displayProgress();
             prompter.promptForGuess();
             game.getCurrentProgress();
         }
-        prompter.displayProgress();
-
-
+        prompter.displayOutcome();
     }
 }

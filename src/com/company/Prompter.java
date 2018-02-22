@@ -24,9 +24,8 @@ public class Prompter {
             String guessInput = scanner.nextLine();
 
             // Since input always returns a string, have to use charAt. 0 being the first character in the string
-            char guess = guessInput.charAt(0);
             try {
-                isHit = mGame.applyGuess(guess);
+                isHit = mGame.applyGuess(guessInput);
                 isAcceptable = true;
             } catch (IllegalArgumentException iae) {
                 System.out.printf("%s. Please try again\n" ,iae.getMessage());
@@ -37,6 +36,15 @@ public class Prompter {
     public void displayProgress() {
         System.out.printf("Try to solve: %s%nYou have %d guesses to solve %n", mGame.getCurrentProgress(),
                 mGame.getRemainingTries());
+
+    }
+
+    public void displayOutcome() {
+        if (!mGame.isWon()){
+            System.out.printf("Sorry, you lost. Game over. The answer was %s >:)", mGame.getAnswer());
+        }else {
+            System.out.printf("Congratulations! You won with %s tries remaining!", mGame.getRemainingTries());
+        }
 
     }
 /*
