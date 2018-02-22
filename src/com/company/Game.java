@@ -12,7 +12,7 @@ public class Game {
         misses = "";
     }
 
-    public boolean applyGuess(char letter) throws IllegalAccessException {
+    public boolean applyGuess(char letter){
         if (misses.indexOf(letter) != -1 || hits.indexOf(letter) != -1){
             throw new IllegalAccessException(letter +" has already been guessed");
 
