@@ -66,7 +66,6 @@ public class Game {
     }
     public boolean isWon() {
         return getCurrentProgress().indexOf('_') == -1;
-
     }
 
 }

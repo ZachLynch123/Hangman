@@ -45,7 +45,6 @@ public class Prompter {
         }else {
             System.out.printf("Congratulations! You won with %s tries remaining!", mGame.getRemainingTries());
         }
-
     }
 /*
 enhanced for loop
