@@ -1,6 +1,7 @@
 package com.company;
 // Hold all game related logic
 public class Game {
+    public static final int MAX_MISSES = 7;
     private String mAnswer;
     private String hits;
     private String misses;
@@ -28,7 +29,6 @@ public class Game {
             char display = '_';
             if (hits.indexOf(letter) != -1) {
                 display = letter;
-
             }
             progress += display;
         }
